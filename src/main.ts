@@ -16,9 +16,9 @@ async function bootstrap() {
   //Usando variable de entorno para el puerto: 
   const configService = app.get(ConfigService);
   const port = configService.get('PORT');
-  // console.log("PUERTO DE LA APLICACION: " + port );
 
-  //SEGURIDAD CORS:
+
+  //app.enableCors() habilita CORS para todas las rutas de la aplicación.
   app.enableCors(CORS);
 
   await app.listen(3000);

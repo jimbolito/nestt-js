@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+# Nombre del servicio:
+  coddr_pg:
+    image: postgres:16.1
+# Nombre del contenedor - que lo llamos igual que el servicio porque sí
+    container_name: coddr_pg
+    restart: always
+    environment:
+      POSTGRES_DB: codrrdb
+      POSTGRES_USER: ucodrr
+      POSTGRES_PASSWORD: secret1234
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
